@@ -9,7 +9,7 @@ git clone https://github.com/maso0310/linebot_selenium.git
 cd linebot_selenium
 ```
 
-2.在heroku設定chromedirver安裝環境，進入APP頁面後，從Settings中點選Add bulidpack，新增以下URL，在Heroku環境中安裝Google Chrome與ChromeDriver。設定完畢後將在下次程式部署Heroku時安裝，會使部署時間與變長，占用容量也會提高。
+2.在heroku設定chromedirver安裝環境，進入APP頁面後，從Settings中點選Add bulidpack，新增以下URL，在Heroku環境中安裝Google Chrome與ChromeDriver。設定完畢後將在下次程式部署Heroku時安裝，會使部署時間與變長，占用容量也會提高，因此會建議先在本機中使用selenium測試爬蟲的效果，後來再移植到LINEBOT上面。
 
 ```
 https://github.com/heroku/heroku-buildpack-google-chrome
@@ -25,6 +25,8 @@ https://github.com/heroku/heroku-buildpack-chromedriver
 4.將範例程式碼部署至Heroku App
 
 5.LINEBOT試運行
+
+
 
 ### IG_image_parser.py
 

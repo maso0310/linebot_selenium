@@ -68,7 +68,8 @@ def handle_message(event):
         message = function_list()
         line_bot_api.reply_message(event.reply_token, message)
     elif 'https://instagram.com/' in msg:
-        message = IG_imagemap_maker(msg)
+        IG_imagemap_maker(msg)
+        message = TextSendMessage(text='IG爬蟲測試中')
         line_bot_api.reply_message(event.reply_token, message)
     else:
         message = TextSendMessage(text=msg)
