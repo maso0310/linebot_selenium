@@ -7,8 +7,8 @@ import time
 def IG_imagemap_maker(url):
     driver = webdriver.Chrome()
     driver.get(url)
-    driver.save_screenshot('test.png')
-    return ImageSendMessage(original_content_url='https://maso-linebot.herokuapp.com/test.png',preview_image_url='https://maso-linebot.herokuapp.com/test.png')
+    driver.save_screenshot('./static/tmp/test.png')
+    return ImageSendMessage(original_content_url='https://maso-linebot.herokuapp.com/static/tmp/test.png',preview_image_url='https://maso-linebot.herokuapp.com/static/tmp/test.png')
     
     time.sleep(5)  
 
