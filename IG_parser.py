@@ -3,11 +3,15 @@ from selenium.webdriver.common.keys import Keys
 from bs4 import BeautifulSoup
 from linebot.models import *
 import time
+import os
 
 def IG_imagemap_maker(url):
     driver = webdriver.Chrome()
     driver.get(url)
-    driver.save_screenshot('./static/tmp/test.png')
+    image_path = './static/tmp/test.png'
+    if os.path.isfile(image_path)==True:
+        os.remove(image_path)
+    driver.save_screenshot(image_path)
     return ImageSendMessage(original_content_url='https://maso-linebot.herokuapp.com/static/tmp/test.png',preview_image_url='https://maso-linebot.herokuapp.com/static/tmp/test.png')
 
 '''
