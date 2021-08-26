@@ -10,7 +10,6 @@ def IG_imagemap_maker(url):
     driver.save_screenshot('test.png')
     return ImageSendMessage(original_content_url='https://maso-linebot.herokuapp.com/test.png',preview_image_url='https://maso-linebot.herokuapp.com/test.png')
     
-    print(driver.page_source)
     time.sleep(5)  
 
 #    user_name = driver.find_element_by_name('username')
