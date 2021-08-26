@@ -10,18 +10,20 @@ def IG_imagemap_maker(url):
 
     time.sleep(5)  
 
-    user_name = driver.find_element_by_name('username')
-    user_name.send_keys('masoufo0310@gmail.com')
-    password = driver.find_element_by_name('password')
-    password.send_keys('2626ioxaagu')
-    password.send_keys(Keys.RETURN)
+#    user_name = driver.find_element_by_name('username')
+#    user_name.send_keys('masoufo0310@gmail.com')
+#    password = driver.find_element_by_name('password')
+#    password.send_keys('2626ioxaagu')
+#    password.send_keys(Keys.RETURN)
 
-    time.sleep(5)  
+#    time.sleep(5)  
 
-    check_save_info = driver.find_element_by_css_selector('button.sqdOP.yWX7d.y3zKF')
-    check_save_info.click()
+#    check_save_info = driver.find_element_by_css_selector('button.sqdOP.yWX7d.y3zKF')
+#    check_save_info.click()
     image_list = driver.find_elements_by_class_name('FFVAD')
     print(image_list)
+
+    driver.get(url)
 
     contents = {}
     contents['type'] = 'carousel'
@@ -36,7 +38,7 @@ def IG_imagemap_maker(url):
                                 "type": "image",
                                 "url": image_url,
                                 "size": "full",
-                                "aspectRatio": "20:13",
+                                "aspectRatio": "1:1",
                                 "aspectMode": "cover",
                                 "action": {
                                 "type": "uri",
