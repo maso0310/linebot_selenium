@@ -8,6 +8,7 @@ def IG_imagemap_maker(url):
     driver = webdriver.Chrome()
     driver.get(url)
 
+    print(driver.page_source)
     time.sleep(5)  
 
 #    user_name = driver.find_element_by_name('username')
