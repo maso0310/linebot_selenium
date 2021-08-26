@@ -7,7 +7,9 @@ import time
 def IG_imagemap_maker(url):
     driver = webdriver.Chrome()
     driver.get(url)
-
+    driver.save_screenshot('test.png')
+    return ImageSendMessage(original_content_url='https://maso-linebot.herokuapp.com/test.png',preview_image_url='https://maso-linebot.herokuapp.com/test.png')
+    
     print(driver.page_source)
     time.sleep(5)  
 
@@ -52,7 +54,7 @@ def IG_imagemap_maker(url):
     print(contents)
     message = FlexSendMessage(alt_text='IG照片瀏覽',contents=contents)
     return message
-
+    
     
     
 #可於本機中直接執行python IG_parser.py進行單元測試
