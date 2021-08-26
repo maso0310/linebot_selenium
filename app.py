@@ -67,7 +67,7 @@ def handle_message(event):
     elif '功能列表' in msg:
         message = function_list()
         line_bot_api.reply_message(event.reply_token, message)
-    elif 'https://instagram.com/' in msg:
+    elif 'https://' in msg:
         message = IG_imagemap_maker(msg)
         line_bot_api.reply_message(event.reply_token, message)
     else:
