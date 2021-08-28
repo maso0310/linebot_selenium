@@ -7,9 +7,11 @@ import os
 import random
 
 def youtube_vedio_parser(keyword):
+    #建立url跟目錄
     url = 'https://tw.youtube.com/'
+    #建立chrome設定
     chromeOption = webdriver.ChromeOptions()
-    chromeOption.add_argument("--lang=zh-hant")
+    chromeOption.add_argument("--lang=zh-CN.UTF-8")
     driver = webdriver.Chrome(options=chromeOption)
     driver.get(url)
     search_vedio = driver.find_element_by_name('search_query')
@@ -27,11 +29,11 @@ def youtube_vedio_parser(keyword):
     yt_vedio_images = driver.find_elements_by_class_name('yt-img-shadow')
     print(yt_vedio_images)
     for image in yt_vedio_images:
-        print(image['src'])
+        print(image.get_attribute('src'))
     yt_vedio_urls = driver.find_element_by_css_selector('.yt-simple-endpoint.inline-block.style-scope.ytd-thumbnail')
     print(yt_vedio_urls)
     for url in yt_vedio_urls:
-        print(url['href'])
+        print(url.get_attribute('href'))
         
     return ImageSendMessage(original_content_url='https://hjuav.herokuapp.com/static/tmp/test.png?',preview_image_url='https://hjuav.herokuapp.com/static/tmp/test.png?')
 
