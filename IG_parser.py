@@ -19,21 +19,22 @@ def youtube_vedio_parser(keyword):
     search_vedio.send_keys(Keys.RETURN)
     search_button = driver.find_element_by_id('search-icon-legacy')
     search_button.click()
-    time.sleep(3)
+    time.sleep(5)
 
     image_path = './static/tmp/test.png'
     if os.path.isfile(image_path)==True:
         os.remove(image_path)
     driver.save_screenshot(image_path)
     
-    yt_vedio_images = driver.find_elements_by_class_name('yt-img-shadow')
+    yt_vedio_images = driver.find_elements_by_css_selector('img#img.style-scope.yt-img-shadow')
     print(yt_vedio_images)
     for image in yt_vedio_images:
         print(image.get_attribute('src'))
     yt_vedio_urls = driver.find_elements_by_css_selector('.yt-simple-endpoint.inline-block.style-scope.ytd-thumbnail')
     print(yt_vedio_urls)
     for url in yt_vedio_urls:
-        print(url.get_attribute('href'))
+        if 'ytimg' in rl.get_attribute('href'):
+            print(url.get_attribute('href'))
 
         
     return ImageSendMessage(original_content_url='https://hjuav.herokuapp.com/static/tmp/test.png?',preview_image_url='https://hjuav.herokuapp.com/static/tmp/test.png?')
