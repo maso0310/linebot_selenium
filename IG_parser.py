@@ -12,28 +12,42 @@ def youtube_vedio_parser(keyword):
     #建立chrome設定
     chromeOption = webdriver.ChromeOptions()
     chromeOption.add_argument("--lang=zh-CN.UTF-8")
+    #開啟Chrome瀏覽器
     driver = webdriver.Chrome(options=chromeOption)
+    #進入指定網址
     driver.get(url)
+    #定義一個物件，以name標籤找到youtube的關鍵字搜尋欄位
     search_vedio = driver.find_element_by_name('search_query')
+    #將關鍵字文字送入搜尋欄位
     search_vedio.send_keys(keyword)
-    search_vedio.send_keys(Keys.RETURN)
+    #按下輸入搜尋按鈕
+#    search_vedio.send_keys(Keys.RETURN)
     search_button = driver.find_element_by_id('search-icon-legacy')
     search_button.click()
+    #等待網頁讀取
     time.sleep(5)
 
+    #在static資料夾中建立一個暫存圖片路徑
     image_path = './static/tmp/test.png'
-    if os.path.isfile(image_path)==True:
-        os.remove(image_path)
+    #若目前已經有圖片則將其圖片刪除
+#    if os.path.isfile(image_path)==True:
+#        os.remove(image_path)
+    #將目前的頁面截圖儲存至暫存圖片路徑
     driver.save_screenshot(image_path)
     
+    #以css選擇器搜尋youtube的影片縮圖    
     yt_vedio_images = driver.find_elements_by_css_selector('img#img.style-scope.yt-img-shadow')
     print(yt_vedio_images)
+    #將每個圖片的縮圖放入圖片list
     for image in yt_vedio_images:
         print(image.get_attribute('src'))
+
+    #以css選擇器搜尋youtube的影片連結    
     yt_vedio_urls = driver.find_elements_by_css_selector('.yt-simple-endpoint.inline-block.style-scope.ytd-thumbnail')
     print(yt_vedio_urls)
+    #將每個影片連結放入連結list
     for url in yt_vedio_urls:
-        if 'ytimg' in rl.get_attribute('href'):
+        if 'ytimg' in url.get_attribute('href'):
             print(url.get_attribute('href'))
 
         
