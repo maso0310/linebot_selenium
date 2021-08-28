@@ -14,7 +14,7 @@ def IG_imagemap_maker(url):
     if os.path.isfile(image_path)==True:
         os.remove(image_path)
     driver.save_screenshot(image_path)
-    return ImageSendMessage(original_content_url='https://maso-linebot.herokuapp.com/static/tmp/test.png?',preview_image_url='https://maso-linebot.herokuapp.com/static/tmp/test.png?')
+    return ImageSendMessage(original_content_url='https://hjuav.herokuapp.com/static/tmp/test.png?',preview_image_url='https://hjuav.herokuapp.com/static/tmp/test.png?')
 
 '''
 time.sleep(5)  
