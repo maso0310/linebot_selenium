@@ -68,7 +68,7 @@ def handle_message(event):
         message = function_list()
         line_bot_api.reply_message(event.reply_token, message)
     elif 'YT,' in msg:
-        keyword = msg.split(',')
+        keyword = msg.split(',')[1]
         message = youtube_vedio_parser(keyword)
         line_bot_api.reply_message(event.reply_token, message)
     else:
