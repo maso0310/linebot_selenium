@@ -13,6 +13,7 @@ def youtube_vedio_parser(keyword):
     search_vedio = driver.find_element_by_name('search_query')
     search_vedio.send_keys(keyword)
     search_vedio.send_keys(Keys.RETURN)
+    search_vedio.send_keys(Keys.RETURN)
     image_path = './static/tmp/test.png'
     if os.path.isfile(image_path)==True:
         os.remove(image_path)
