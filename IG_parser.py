@@ -6,14 +6,18 @@ import time
 import os
 import random
 
-def IG_imagemap_maker(url):
+def youtube_vedio_parser(keyword):
+    url = 'https://tw.youtube.com/'
     driver = webdriver.Chrome()
     driver.get(url)
-
+    search_vedio = driver.find_elements_by_name('search_query')
+    search_vedio.send_keys(keyword)
+    search_vedio.send_keys(Keys.RETURN)
     image_path = './static/tmp/test.png'
     if os.path.isfile(image_path)==True:
         os.remove(image_path)
     driver.save_screenshot(image_path)
+    
     return ImageSendMessage(original_content_url='https://hjuav.herokuapp.com/static/tmp/test.png?',preview_image_url='https://hjuav.herokuapp.com/static/tmp/test.png?')
 
 '''

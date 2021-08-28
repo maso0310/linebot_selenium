@@ -68,7 +68,7 @@ def handle_message(event):
         message = function_list()
         line_bot_api.reply_message(event.reply_token, message)
     elif 'https://' in msg:
-        message = IG_imagemap_maker(msg)
+        message = youtube_vedio_parser(msg)
         line_bot_api.reply_message(event.reply_token, message)
     else:
         message = TextSendMessage(text=msg)
