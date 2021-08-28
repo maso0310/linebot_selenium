@@ -30,10 +30,11 @@ def youtube_vedio_parser(keyword):
     print(yt_vedio_images)
     for image in yt_vedio_images:
         print(image.get_attribute('src'))
-    yt_vedio_urls = driver.find_element_by_css_selector('.yt-simple-endpoint.inline-block.style-scope.ytd-thumbnail')
+    yt_vedio_urls = driver.find_elements_by_css_selector('.yt-simple-endpoint.inline-block.style-scope.ytd-thumbnail')
     print(yt_vedio_urls)
     for url in yt_vedio_urls:
         print(url.get_attribute('href'))
+
         
     return ImageSendMessage(original_content_url='https://hjuav.herokuapp.com/static/tmp/test.png?',preview_image_url='https://hjuav.herokuapp.com/static/tmp/test.png?')
 
