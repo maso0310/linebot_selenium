@@ -24,6 +24,11 @@ def youtube_vedio_parser(keyword):
         os.remove(image_path)
     driver.save_screenshot(image_path)
     
+    yt_vedio_images = driver.find_elements_by_class_name('yt-img-shadow')
+    print(yt_vedio_images)
+    yt_vedio_urls = driver.find_element_by_css_selector('.yt-simple-endpoint.inline-block.style-scope.ytd-thumbnail')
+    print(yt_vedio_urls)
+        
     return ImageSendMessage(original_content_url='https://hjuav.herokuapp.com/static/tmp/test.png?',preview_image_url='https://hjuav.herokuapp.com/static/tmp/test.png?')
 
 '''
