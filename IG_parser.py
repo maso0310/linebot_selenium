@@ -9,6 +9,7 @@ import random
 def IG_imagemap_maker(url):
     driver = webdriver.Chrome()
     driver.get(url)
+
     image_path = './static/tmp/test.png'
     if os.path.isfile(image_path)==True:
         os.remove(image_path)
