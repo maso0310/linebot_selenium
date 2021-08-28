@@ -8,7 +8,9 @@ import random
 
 def youtube_vedio_parser(keyword):
     url = 'https://tw.youtube.com/'
-    driver = webdriver.Chrome()
+    chromeOption = webdriver.ChromeOptions()
+    chromeOption.add_argument("--lang=zh-TW")
+    driver = webdriver.Chrome(options=chromeOption)
     driver.get(url)
     search_vedio = driver.find_element_by_name('search_query')
     search_vedio.send_keys(keyword)
