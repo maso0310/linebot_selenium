@@ -19,6 +19,7 @@ def youtube_vedio_parser(keyword):
     chromeOption.add_argument("--lang=zh-CN")
     #開啟Chrome瀏覽器
     driver = webdriver.Chrome(options=chromeOption)
+    driver.set_window_size(1024, 960)
     #進入指定網址
     driver.get(url)
     #定義一個物件，以name標籤找到youtube的關鍵字搜尋欄位
