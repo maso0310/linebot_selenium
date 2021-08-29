@@ -11,13 +11,13 @@ def image_carousel(alt_text,image_url_list,vedio_url_list,title_list):
                             "type": "bubble",
                             "hero": {
                                 "type": "image",
-                                "url": "https://i.ytimg.com/vi/mA345j5Fc60/hqdefault.jpg?sqp=-oaymwEcCOADEI4CSFXyq4qpAw4IARUAAIhCGAFwAcABBg==&rs=AOn4CLBMSH8XghQFw8ozJGVeqrrCuWT_mA",
+                                "url": image_url + '?',
                                 "size": "full",
                                 "aspectRatio": "16:9",
                                 "aspectMode": "cover",
                                 "action": {
                                 "type": "uri",
-                                "uri": "http://linecorp.com/"
+                                "uri": vedio_url
                                 }
                             },
                             "body": {
