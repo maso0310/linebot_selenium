@@ -31,7 +31,8 @@ handler = WebhookHandler(CHANNEL_SECRET)
 @app.route("/share_vedio")
 def share_vedio():
     return render_template("./share_vedio.html")
-    
+
+
 
 # 監聽所有來自 /callback 的 Post Request
 @app.route("/callback", methods=['POST'])
