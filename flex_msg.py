@@ -69,7 +69,7 @@ def image_carousel(alt_text,image_url_list,vedio_url_list,title_list,yt_channel_
                                     "action": {
                                     "type": "uri",
                                     "label": "分享",
-                                    "uri": heroku_APP_url + '/?image_url=' + image_url + '&vedio_url=' + vedio_url + '&title=' + title + '&channel_img=' + channel_img + '&channel_name=' + channel_name
+                                    "uri": heroku_APP_url + '?image_url=' + image_url + '&vedio_url=' + vedio_url + '&title=' + title + '&channel_img=' + channel_img + '&channel_name=' + channel_name
                                     }
                                 }
                                 ],
