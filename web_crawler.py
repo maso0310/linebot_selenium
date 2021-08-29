@@ -117,7 +117,7 @@ def youtube_vedio_parser(keyword):
     message = []    
     #建立一個隨機4碼的字串，使圖片縮圖瀏覽不會因為讀取同一個url快取而重覆
     random_code = ''.join(random.choice(string.ascii_letters + string.digits) for _ in range(4))
-    message.append(ImageSendMessage(original_content_url=heroku_APP_url + '/static/tmp/test.png?'+random_code,preview_image_url='https://hjuav.herokuapp.com/static/tmp/test.png?'+random_code))
+    message.append(ImageSendMessage(original_content_url=HEROKU_APP_URL + '/static/tmp/test.png?'+random_code,preview_image_url=HEROKU_APP_URL + '/static/tmp/test.png?'+random_code))
 
     #回傳搜尋結果的FlexMessage
     message.append(image_carousel('YT搜尋結果',yt_vedio_images,vedio_url_list,yt_title_list,yt_channel_infos_image_urls,yt_channel_infos_names))
