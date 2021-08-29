@@ -8,7 +8,7 @@ def image_carousel(alt_text,image_url_list,vedio_url_list,title_list,yt_channel_
     i=0
     for image_url, vedio_url, title, channel_img, channel_name in zip(image_url_list,vedio_url_list,title_list,yt_channel_infos_image_urls,yt_channel_infos_names):
         if i<10:
-            share_url = heroku_APP_url + '/share_vedio?image_url=' + image_url + '&vedio_url=' + vedio_url + '&channel_img=' + channel_img + '&channel_name=' + channel_name
+            share_url = heroku_APP_url + '/share_vedio?image_url=' + image_url + '&vedio_url=' + vedio_url + '&channel_img=' + channel_img #+ '&channel_name=' + channel_name
 #            share_url = heroku_APP_url + '/share_vedio?image_url=' + image_url + '&vedio_url=' + vedio_url + '&title=' + title #+ '&channel_img=' + channel_img + '&channel_name=' + channel_name
             print(share_url.replace('【','[').replace('】',']').replace('｜','|').replace(' ','').replace('：',':'))
             bubble =    {   "type": "bubble",
