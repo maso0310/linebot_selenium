@@ -71,7 +71,7 @@ def image_carousel(alt_text,image_url_list,vedio_url_list,title_list,yt_channel_
                                     "action": {
                                     "type": "uri",
                                     "label": "分享",
-                                    "uri": share_url.replace('【','[').replace('】',']').replace('｜','|').replace(' ','')
+                                    "uri": share_url.replace('【','[').replace('】',']').replace('｜','|').replace(' ','').replace('：',':')
                                     }
                                 }
                                 ],
