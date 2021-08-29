@@ -1,22 +1,22 @@
 from linebot.models import *
 
-def image_carousel(alt_text,image_url_list):
+def image_carousel(alt_text,image_url_list,vedio_url_list):
     contents = dict()
     contents['type'] = 'carousel'
     contents['contents'] = []
     i=0
-    for image_url in image_url_list:
+    for image_url, vedio_url in zip(image_url_list,vedio_url_list):
         if i<10:
             bubble =    {  "type": "bubble",
                             "hero": {
                                 "type": "image",
-                                "url": image_url,
+                                "url": image_url + '?',
                                 "size": "full",
                                 "aspectRatio": "16:9",
                                 "aspectMode": "cover",
                                 "action": {
                                 "type": "uri",
-                                "uri": "http://linecorp.com/"
+                                "uri": vedio_url
                                 }
                             },
                             "footer": {
@@ -26,7 +26,7 @@ def image_carousel(alt_text,image_url_list):
                                 "contents": [
                                 {
                                     "type": "button",
-                                    "style": "secondary",
+                                    "style": "primary",
                                     "height": "sm",
                                     "action": {
                                     "type": "uri",

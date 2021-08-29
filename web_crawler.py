@@ -92,7 +92,7 @@ def youtube_vedio_parser(keyword):
     message.append(ImageSendMessage(original_content_url='https://hjuav.herokuapp.com/static/tmp/test.png?'+random_code,preview_image_url='https://hjuav.herokuapp.com/static/tmp/test.png?'+random_code))
 
     #回傳搜尋結果的FlexMessage
-    message.append(image_carousel('YT搜尋結果',yt_vedio_images))
+    message.append(image_carousel('YT搜尋結果',yt_vedio_images,vedio_url_list))
 
     return message
    
