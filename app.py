@@ -1,20 +1,3 @@
-from flask import Flask, request, abort, render_template
-
-from linebot import (
-    LineBotApi, WebhookHandler
-)
-from linebot.exceptions import (
-    InvalidSignatureError
-)
-from linebot.models import *
-from liffpy import (
-    LineFrontendFramework as LIFF,
-    ErrorResponse
-)
-
-liff_api = LIFF(CHANNEL_ACCESS_TOKEN)
-add_liff = liff_api.add(view_type="compact",view_url="https://pypi.org/project/liffpy/")
-
 #======這裡是呼叫的檔案內容=====
 from message import *
 from new import *
@@ -27,7 +10,16 @@ from config import *
 import tempfile, os
 import datetime
 import time
+from flask import Flask, request, abort, render_template
+from linebot import LineBotApi, WebhookHandler
+from linebot.exceptions import InvalidSignatureError
+from linebot.models import *
+from liffpy import LineFrontendFramework as LIFF, ErrorResponse
+
 #======python的函數庫==========
+
+liff_api = LIFF(CHANNEL_ACCESS_TOKEN)
+add_liff = liff_api.add(view_type="compact",view_url="https://pypi.org/project/liffpy/")
 
 app = Flask(__name__,template_folder='templates')
 static_tmp_path = os.path.join(os.path.dirname(__file__), 'static', 'tmp')
