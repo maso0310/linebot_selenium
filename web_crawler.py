@@ -31,6 +31,7 @@ def youtube_vedio_parser(keyword):
     search_button.click()
     #等待網頁讀取
 
+
     #在static資料夾中建立一個暫存圖片路徑
     image_path = './static/tmp/test.png'
     #若目前已經有圖片則將其圖片刪除
