@@ -9,7 +9,21 @@
     <script src="https://static.line-scdn.net/liff/edge/2/sdk.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.0.0/jquery.min.js"></script>
     <script>
+        function getParameterByName(name, url = window.location.href) {
+            name = name.replace(/[\[\]]/g, '\\$&');
+            var regex = new RegExp('[?&]' + name + '(=([^&#]*)|&|#|$)'),
+                results = regex.exec(url);
+            if (!results) return null;
+            if (!results[2]) return '';
+            return decodeURIComponent(results[2].replace(/\+/g, ' '));
+        }
+
         console.log(window.location.href)
+        console.log(getParameterByName('image_url'));
+        console.log(getParameterByName('vedio_url'));
+        console.log(getParameterByName('title'));
+        console.log(getParameterByName('channel_img'));
+        console.log(getParameterByName('channel_name'));
     </script>
 </head>
 
