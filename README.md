@@ -26,7 +26,6 @@ https://github.com/heroku/heroku-buildpack-chromedriver
 
 5.LINEBOT試運行
 
-### IG_image_parser.py
 
 
 

@@ -1,4 +1,4 @@
-from flask import Flask, request, abort
+from flask import Flask, request, abort, render_template
 
 from linebot import (
     LineBotApi, WebhookHandler
@@ -12,7 +12,7 @@ from liffpy import (
     ErrorResponse
 )
 
-liff_api = LIFF("LVnw8oceAphhlvLviG58jjueWycw3zS9LtJEcPwdVv1fvwxQ0rNqmwxBvLvoR4rbslXydU9iAkA9Mex/xVeOHh3cxwa23Fp83+3lh1MjSoiPN/kipgc1M73/95nNLKSK8wKMFhqSQ6ccWc8xk6cV4wdB04t89/1O/w1cDnyilFU=")
+liff_api = LIFF(CHANNEL_ACCESS_TOKEN)
 add_liff = liff_api.add(view_type="compact",view_url="https://pypi.org/project/liffpy/")
 
 #======這裡是呼叫的檔案內容=====
@@ -20,6 +20,7 @@ from message import *
 from new import *
 from Function import *
 from web_crawler import *
+from config import *
 #======這裡是呼叫的檔案內容=====
 
 #======python的函數庫==========
@@ -28,12 +29,18 @@ import datetime
 import time
 #======python的函數庫==========
 
-app = Flask(__name__)
+app = Flask(__name__,template_folder='templates')
 static_tmp_path = os.path.join(os.path.dirname(__file__), 'static', 'tmp')
 # Channel Access Token
-line_bot_api = LineBotApi('LVnw8oceAphhlvLviG58jjueWycw3zS9LtJEcPwdVv1fvwxQ0rNqmwxBvLvoR4rbslXydU9iAkA9Mex/xVeOHh3cxwa23Fp83+3lh1MjSoiPN/kipgc1M73/95nNLKSK8wKMFhqSQ6ccWc8xk6cV4wdB04t89/1O/w1cDnyilFU=')
+line_bot_api = LineBotApi(CHANNEL_ACCESS_TOKEN)
 # Channel Secret
-handler = WebhookHandler('adac7bcdf96415bf6f32ce3d20b8fb1e')
+handler = WebhookHandler(CHANNEL_SECRET)
+
+@app.route("/share_vedio/<image_url>/<vedio_url>/<title>/<channel_img_url>/<channel_name>")
+def share_vedio(share_vedio_url):
+    print(share_vedio_url)
+    return render_template("./share_vedio.html")
+    
 
 # 監聽所有來自 /callback 的 Post Request
 @app.route("/callback", methods=['POST'])
