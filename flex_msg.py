@@ -1,14 +1,13 @@
 from linebot.models import *
 
-def image_carousel(alt_text,image_url_list,vedio_url_list,title_list):
+def image_carousel(alt_text,image_url_list,vedio_url_list,title_list,yt_channel_infos_image_urls,yt_channel_infos_names):
     contents = dict()
     contents['type'] = 'carousel'
     contents['contents'] = []
     i=0
-    for image_url, vedio_url, title in zip(image_url_list,vedio_url_list,title_list):
+    for image_url, vedio_url, title, channel_img, channel_name in zip(image_url_list,vedio_url_list,title_list,yt_channel_infos_image_urls,yt_channel_infos_names):
         if i<10:
-            bubble =    {
-                            "type": "bubble",
+            bubble =    {   "type": "bubble",
                             "hero": {
                                 "type": "image",
                                 "url": image_url + '?',
@@ -28,7 +27,32 @@ def image_carousel(alt_text,image_url_list,vedio_url_list,title_list):
                                     "type": "text",
                                     "text": title,
                                     "size": "sm",
-                                    "wrap": True
+                                    "wrap": True,
+                                    "contents": []
+                                },
+                                {
+                                    "type": "box",
+                                    "layout": "horizontal",
+                                    "contents": [
+                                    {
+                                        "type": "image",
+                                        "url": channel_img + '?',
+                                        "animated": True,
+                                        "size": "xxs",
+                                        "align": "start",
+                                        "flex": 0,
+                                        "aspectMode": "cover"
+                                    },
+                                    {
+                                        "type": "text",
+                                        "text": channel_name,
+                                        "size": "xs",
+                                        "align": "start",
+                                        "gravity": "center",
+                                        "margin": "md"
+                                    }
+                                    ],
+                                    "margin": "md"
                                 }
                                 ]
                             },

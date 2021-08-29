@@ -72,12 +72,30 @@ def youtube_vedio_parser(keyword):
                 if len(yt_vedio_images)<10:
                     yt_vedio_images.append(image.get_attribute('src'))
     
+    #建立標題列表
     yt_title_list = []
     yt_vedio_infos = driver.find_elements_by_css_selector('#video-title')
     print(len(yt_vedio_infos))
     for infos in yt_vedio_infos:
         print(infos.get_attribute('title'))
         yt_title_list.append(infos.get_attribute('title'))
+
+    #建立頻道資訊列表(圖片)
+    yt_channel_infos_image_urls = []
+    yt_channel_infos_image_list = driver.find_elements_by_css_selector('#channel-info a yt-img-shadow #img')
+    for infos in yt_channel_infos_image_list:
+        print(infos.get_attribute('src'))
+        yt_channel_infos_image_urls.append(infos.get_attribute('src'))
+
+    #建立頻道資訊列表(頻道名稱)
+    yt_channel_infos_names = []
+    yt_channel_infos_name_list = driver.find_elements_by_css_selector('#channel-info ytd-channel-name div#container div#text-container yt-formatted-string a')
+    for infos in yt_channel_infos_name_list:
+        yt_channel_infos_names.append(infos.text)
+#        print(infos.text)
+#        print(infos.get_attribute('src'))
+#        yt_channel_infos_names.append(infos.get_attribute('src'))
+    
     
     import csv
     with open('./yt.csv','w',encoding='utf-8',newline='') as f:
@@ -99,7 +117,7 @@ def youtube_vedio_parser(keyword):
     message.append(ImageSendMessage(original_content_url='https://hjuav.herokuapp.com/static/tmp/test.png?'+random_code,preview_image_url='https://hjuav.herokuapp.com/static/tmp/test.png?'+random_code))
 
     #回傳搜尋結果的FlexMessage
-    message.append(image_carousel('YT搜尋結果',yt_vedio_images,vedio_url_list,yt_title_list))
+    message.append(image_carousel('YT搜尋結果',yt_vedio_images,vedio_url_list,yt_title_list,yt_channel_infos_image_urls,yt_channel_infos_names))
 
     return message
    
