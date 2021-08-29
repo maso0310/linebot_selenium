@@ -72,6 +72,13 @@ def youtube_vedio_parser(keyword):
                 if len(yt_vedio_images)<10:
                     yt_vedio_images.append(image.get_attribute('src'))
     
+    yt_title_list = []
+    yt_vedio_infos = driver.find_elements_by_css_selector('#video-title')
+    print(len(yt_vedio_infos))
+    for infos in yt_vedio_infos:
+        print(infos.get_attribute('title'))
+        yt_title_list.append(infos.get_attribute('title'))
+    
     import csv
     with open('./yt.csv','w',encoding='utf-8',newline='') as f:
         writer = csv.writer(f)
@@ -92,7 +99,7 @@ def youtube_vedio_parser(keyword):
     message.append(ImageSendMessage(original_content_url='https://hjuav.herokuapp.com/static/tmp/test.png?'+random_code,preview_image_url='https://hjuav.herokuapp.com/static/tmp/test.png?'+random_code))
 
     #回傳搜尋結果的FlexMessage
-    message.append(image_carousel('YT搜尋結果',yt_vedio_images,vedio_url_list))
+    message.append(image_carousel('YT搜尋結果',yt_vedio_images,vedio_url_list,yt_title_list))
 
     return message
    
