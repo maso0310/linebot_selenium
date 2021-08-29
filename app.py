@@ -19,7 +19,7 @@ from liffpy import LineFrontendFramework as LIFF, ErrorResponse
 #======python的函數庫==========
 
 liff_api = LIFF(CHANNEL_ACCESS_TOKEN)
-add_liff = liff_api.add(view_type="compact",view_url="https://pypi.org/project/liffpy/")
+#add_liff = liff_api.add(view_type="compact",view_url="https://pypi.org/project/liffpy/")
 
 app = Flask(__name__,template_folder='templates')
 static_tmp_path = os.path.join(os.path.dirname(__file__), 'static', 'tmp')
