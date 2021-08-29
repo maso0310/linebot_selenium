@@ -121,7 +121,7 @@ def youtube_vedio_parser(keyword):
 
     #回傳搜尋結果的FlexMessage
     message.append(image_carousel('YT搜尋結果',yt_vedio_images,vedio_url_list,yt_title_list,yt_channel_infos_image_urls,yt_channel_infos_names))
-    driver.close()
+#    driver.close()
     return message
    
     
