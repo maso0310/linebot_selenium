@@ -13,7 +13,7 @@ from linebot.models import *
 from message import *
 from new import *
 from Function import *
-from IG_parser import *
+from web_crawler import *
 #======這裡是呼叫的檔案內容=====
 
 #======python的函數庫==========
