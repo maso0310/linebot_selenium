@@ -7,7 +7,13 @@ from linebot.exceptions import (
     InvalidSignatureError
 )
 from linebot.models import *
+from liffpy import (
+    LineFrontendFramework as LIFF,
+    ErrorResponse
+)
 
+liff_api = LIFF("LVnw8oceAphhlvLviG58jjueWycw3zS9LtJEcPwdVv1fvwxQ0rNqmwxBvLvoR4rbslXydU9iAkA9Mex/xVeOHh3cxwa23Fp83+3lh1MjSoiPN/kipgc1M73/95nNLKSK8wKMFhqSQ6ccWc8xk6cV4wdB04t89/1O/w1cDnyilFU=")
+add_liff = liff_api.add(view_type="compact",view_url="https://pypi.org/project/liffpy/")
 
 #======這裡是呼叫的檔案內容=====
 from message import *

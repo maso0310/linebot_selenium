@@ -15,7 +15,7 @@ def youtube_vedio_parser(keyword):
     #建立chrome設定
     chromeOption = webdriver.ChromeOptions()
     #設定瀏覽器的語言為utf-8中文
-    chromeOption.add_argument("--lang=zh-tw")
+    chromeOption.add_argument("--lang=zh-CN")
     #開啟Chrome瀏覽器
     driver = webdriver.Chrome(options=chromeOption)
     #進入指定網址
