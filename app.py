@@ -28,9 +28,8 @@ line_bot_api = LineBotApi(CHANNEL_ACCESS_TOKEN)
 # Channel Secret
 handler = WebhookHandler(CHANNEL_SECRET)
 
-@app.route("/share_vedio")
-def share_vedio(parameter):
-    print(parameter)
+@app.route("/share_vedio/")
+def share_vedio():
     return render_template("./share_vedio.html")
     
 
