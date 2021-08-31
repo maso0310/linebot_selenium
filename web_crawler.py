@@ -17,6 +17,7 @@ def youtube_vedio_parser(keyword):
     chromeOption = webdriver.ChromeOptions()
     #設定瀏覽器的語言為utf-8中文
     chromeOption.add_argument("--lang=zh-CN.UTF8")
+    chromeOption.add_argument('--headless')
     chromeOption.add_argument('--no-sandbox')
     chromeOption.add_argument('--disable-dev-shm-usage')
     #開啟Chrome瀏覽器
@@ -123,7 +124,7 @@ def youtube_vedio_parser(keyword):
 
     #回傳搜尋結果的FlexMessage
     message.append(image_carousel('YT搜尋結果',yt_vedio_images,vedio_url_list,yt_title_list,yt_channel_infos_image_urls,yt_channel_infos_names))
-#    driver.close()
+    driver.close()
     return message
    
     
