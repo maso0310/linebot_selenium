@@ -2,3 +2,4 @@ CHANNEL_ACCESS_TOKEN = 'LVnw8oceAphhlvLviG58jjueWycw3zS9LtJEcPwdVv1fvwxQ0rNqmwxB
 CHANNEL_SECRET = 'adac7bcdf96415bf6f32ce3d20b8fb1e'
 HEROKU_APP_URL = 'https://hjuav.herokuapp.com'
 LIFF_URL = 'https://liff.line.me/1649029786-XLx4kaRr'
+USERID = ''
