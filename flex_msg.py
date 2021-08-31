@@ -13,8 +13,8 @@ def image_carousel(alt_text,image_url_list,vedio_url_list,title_list,yt_channel_
 #            title = quote(title.encode('utf8'))
 #            channel_name = quote(channel_name.encode('utf8'))
 #            share_url = heroku_APP_url + '/share_vedio?image_url=' + image_url + '&vedio_url=' + vedio_url + '&channel_img=' + channel_img #+ '&channel_name=' + channel_name
-            share_url = LIFF_URL + '?image_url=' + image_url + '&vedio_url=' + vedio_url + '&title=' +  quote(title.encode('utf8')) + '&channel_img=' + channel_img + '&channel_name=' + quote(channel_name.encode('utf8'))
-            print(share_url.replace('【','[').replace('】',']').replace('｜','|').replace(' ','').replace('：',':'))
+            #share_url = LIFF_URL + '?image_url=' + image_url + '&vedio_url=' + vedio_url + '&title=' +  quote(title.encode('utf8')) + '&channel_img=' + channel_img + '&channel_name=' + quote(channel_name.encode('utf8'))
+            #print(share_url.replace('【','[').replace('】',']').replace('｜','|').replace(' ','').replace('：',':'))
             bubble =    {   "type": "bubble",
                             "hero": {
                                 "type": "image",
@@ -76,7 +76,7 @@ def image_carousel(alt_text,image_url_list,vedio_url_list,title_list,yt_channel_
                                     "action": {
                                     "type": "uri",
                                     "label": "分享",
-                                    "uri": share_url
+                                    "uri": 'https://yt3.ggpht.com/ytc/AKedOLT3wnGalKYdvwBXWLRFBG1iUjflowTnUI5yqn6x=s68-c-k-c0x00ffffff-no-rj?'
                                     }
                                 }
                                 ],

@@ -17,6 +17,7 @@ def youtube_vedio_parser(keyword):
     chromeOption = webdriver.ChromeOptions()
     #設定瀏覽器的語言為utf-8中文
     chromeOption.add_argument("--lang=zh-CN.UTF8")
+    chromeOption.add_argument('user-agent=Mozilla/5.0 (Windows NT 10.0; WOW64; rv:53.0) Gecko/20100101 Firefox/53.0')
     chromeOption.add_argument('--headless')
     chromeOption.add_argument('--no-sandbox')
     chromeOption.add_argument('--disable-dev-shm-usage')
