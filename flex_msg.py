@@ -80,7 +80,6 @@ def image_carousel(alt_text,image_url_list,vedio_url_list,title_list,yt_channel_
                             }
             contents['contents'].append(bubble)
             i+=1
-    print(contents)
     message = FlexSendMessage(alt_text=alt_text,contents=contents)
     return message
 

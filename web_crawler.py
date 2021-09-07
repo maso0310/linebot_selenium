@@ -56,9 +56,9 @@ def youtube_vedio_parser(keyword):
     #以css選擇器搜尋youtube的影片連結    
     yt_vedio_urls = driver.find_elements_by_css_selector('.yt-simple-endpoint.inline-block.style-scope.ytd-thumbnail')
     #將每個影片連結放入連結list
-    print(len(yt_vedio_urls))
+    #print(len(yt_vedio_urls))
     for url in yt_vedio_urls:
-        print(url.get_attribute('href'))
+        #print(url.get_attribute('href'))
         if len(vedio_url_list)<10:
             vedio_url_list.append(url.get_attribute('href'))
 
@@ -80,7 +80,7 @@ def youtube_vedio_parser(keyword):
             if 'ytimg' in image.get_attribute('src') or '720.jpg?' in image.get_attribute('src') or 'hqdefault.jpg?' in image.get_attribute('src'):
                 if len(yt_vedio_images)<10:
                     yt_vedio_images.append(image.get_attribute('src'))
-                    print(image.get_attribute('src'))
+                    #print(image.get_attribute('src'))
     
 
     #======================從網頁獲取前十個影片標題===========================
@@ -89,7 +89,7 @@ def youtube_vedio_parser(keyword):
     yt_vedio_infos = driver.find_elements_by_css_selector('#video-title')
     for infos in yt_vedio_infos:
         yt_title_list.append(infos.get_attribute('title'))
-        print(infos.get_attribute('title'))
+        #print(infos.get_attribute('title'))
 
     #===================從網頁獲取前十個發布者頻道資訊========================
     #建立頻道資訊列表(圖片)
@@ -97,7 +97,7 @@ def youtube_vedio_parser(keyword):
     yt_channel_infos_image_list = driver.find_elements_by_css_selector('#channel-info a yt-img-shadow #img')
     for infos in yt_channel_infos_image_list:
         yt_channel_infos_image_urls.append(infos.get_attribute('src'))
-        print(infos.get_attribute('src'))
+        #print(infos.get_attribute('src'))
 
     #建立頻道資訊列表(頻道名稱)
     yt_channel_infos_names = []
@@ -114,7 +114,7 @@ def youtube_vedio_parser(keyword):
     #瀏覽器螢幕截圖
     #建立一個隨機4碼的字串，使圖片縮圖瀏覽不會因為讀取同一個url快取而重覆
     random_code = ''.join(random.choice(string.ascii_letters + string.digits) for _ in range(4))
-    #message.append(ImageSendMessage(original_content_url=HEROKU_APP_URL + '/static/tmp/test.png?'+random_code,preview_image_url=HEROKU_APP_URL + '/static/tmp/test.png?'+random_code))
+    message.append(ImageSendMessage(original_content_url=HEROKU_APP_URL + '/static/tmp/test.png?'+random_code,preview_image_url=HEROKU_APP_URL + '/static/tmp/test.png?'+random_code))
 
     #回傳搜尋結果的FlexMessage
     message.append(image_carousel('YT搜尋結果',yt_vedio_images,vedio_url_list,yt_title_list,yt_channel_infos_image_urls,yt_channel_infos_names))
