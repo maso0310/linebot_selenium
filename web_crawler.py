@@ -121,7 +121,7 @@ def youtube_vedio_parser(keyword):
     return message
    
     
-#可於本機中直接執行python web_crawler.py進行單元測試
+#可於本機中直接執行python web_crawler.py進行單元測試，但必須先將CHANNEL_ACCESS_TOKEN、USERID都在config.py設定好
 if __name__=='__main__':
     from linebot import LineBotApi, WebhookHandler
     from linebot.exceptions import InvalidSignatureError
