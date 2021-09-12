@@ -2,12 +2,14 @@
 
 操作步驟：
 
-1.下載範例程式碼，切換到範例檔案資料夾
+1-1.下載範例程式碼，切換到範例檔案資料夾
 
 ```
 git clone https://github.com/maso0310/linebot_selenium.git
 cd linebot_selenium
 ```
+
+1-2.如果要在本機進行selenium程式執行測試，需要根據本機的Chrome版本[下載chromedriver瀏覽器](https://chromedriver.chromium.org/)
 
 2.在heroku設定chromedirver安裝環境，進入APP頁面後，從Settings中點選Add bulidpack，新增以下URL，在Heroku環境中安裝Google Chrome與ChromeDriver。設定完畢後將在下次程式部署Heroku時安裝，會使部署時間與變長，占用容量也會提高，因此會建議先在本機中以selenium爬蟲進行單元測試，確認效果後來再移植到LINEBOT上面。
 
@@ -26,14 +28,13 @@ https://github.com/heroku/heroku-buildpack-chromedriver
 
 5.LINEBOT試運行
 
-
 # web_crawler.py  爬取Youtube影片資訊
 
 程式運作流程：
 
 1.開啟Chrome瀏覽器
 
-~~~
+```
 
 ```
     #開啟Chrome瀏覽器
@@ -43,11 +44,11 @@ https://github.com/heroku/heroku-buildpack-chromedriver
 
 ```
 
-~~~
+```
 
 2.進入youtube網頁並在搜尋欄位輸入關鍵字(keyword來自LINEBOT)
 
-~~~
+```
 
 ```
     #進入指定網址
@@ -61,11 +62,11 @@ https://github.com/heroku/heroku-buildpack-chromedriver
     search_button.click()
 ```
 
-~~~
+```
 
 3.進入瀏覽器之後截圖確認是否爬取正確的頁面
 
-~~~
+```
 
 ```
     #在static資料夾中建立一個暫存圖片路徑(須事先指定static資料夾位置)
@@ -77,11 +78,11 @@ https://github.com/heroku/heroku-buildpack-chromedriver
 
 ```
 
-~~~
+```
 
 4.爬取影片url並且列表
 
-~~~
+```
 
 ```
     #建立影片url列表
@@ -97,11 +98,11 @@ https://github.com/heroku/heroku-buildpack-chromedriver
 
 ```
 
-~~~
+```
 
 5.使用driver.execute_script()執行滾動捲軸的動作，使瀏覽器讀取更多圖片
 
-~~~
+```
 
 ```
     #滾動視窗捲軸，使瀏覽器獲取影片縮圖資訊
@@ -124,11 +125,11 @@ https://github.com/heroku/heroku-buildpack-chromedriver
 
 ```
 
-~~~
+```
 
 6.獲得影片標題、影片發布者頻道圖片與頻道名稱
 
-~~~
+```
 
 ```
     #建立標題列表
@@ -155,11 +156,11 @@ https://github.com/heroku/heroku-buildpack-chromedriver
     driver.close()
 ```
 
-~~~
+```
 
 7.將爬取到的網頁內容以FlexMessage的訊息格式return至app.py
 
-~~~
+```
 
 ```
     message = []   
@@ -174,7 +175,7 @@ https://github.com/heroku/heroku-buildpack-chromedriver
     return message
 ```
 
-~~~
+```
 
 # flex_msg.py   將圖片/文字/連結組合
 
@@ -182,7 +183,7 @@ https://github.com/heroku/heroku-buildpack-chromedriver
 
 2.將bubble單元之JSON檔案複製至flex_msg.py當中，並將圖片/文字與連結置入，以完成設定
 
-~~~
+```
 
 ```
 def image_carousel(alt_text,image_url_list,vedio_url_list,title_list,yt_channel_infos_image_urls,yt_channel_infos_names):
@@ -267,17 +268,13 @@ def image_carousel(alt_text,image_url_list,vedio_url_list,title_list,yt_channel_
     return message
 ```
 
-~~~
+```
 
 3.將FlexMessage回傳至app.py回覆給使用者
 
 # LINEBOT範例指令
 
 1.YT,關鍵字：以半形逗號分隔，後面輸入想要在youtube上面搜尋的關鍵字，送出後等待爬蟲獲取資料，將回傳最多10則的Carousel訊息。
-
-
-
-
 
 ====================================
 如果喜歡這個教學內容
