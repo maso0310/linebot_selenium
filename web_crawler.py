@@ -125,7 +125,7 @@ if __name__=='__main__':
     from linebot import LineBotApi, WebhookHandler
     from linebot.exceptions import InvalidSignatureError
     from linebot.models import *
-    message = youtube_vedio_parser('YT,Maso的萬事屋')
+    message = youtube_vedio_parser('Maso的萬事屋')
     line_bot_api = LineBotApi(CHANNEL_ACCESS_TOKEN)
     line_bot_api.push_message(USERID,message)
     
