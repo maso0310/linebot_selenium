@@ -276,12 +276,13 @@ def image_carousel(alt_text,image_url_list,vedio_url_list,title_list,yt_channel_
 
 1.YT,關鍵字：以半形逗號分隔，後面輸入想要在youtube上面搜尋的關鍵字，送出後等待爬蟲獲取資料，將回傳最多10則的Carousel訊息。
 
-====================================
-如果喜歡這個教學內容
-歡迎訂閱Youtube頻道
-[Maso的萬事屋](https://www.youtube.com/playlist?list=PLG4d6NSc7_l5-GjYiCdYa7H5Wsz0oQA7U)
-或加LINE私下交流 LINE ID: mastermaso
+<br><br>
+====================================<br>
+如果喜歡這個教學內容<br>
+歡迎訂閱Youtube頻道<br>
+[Maso的萬事屋](https://www.youtube.com/playlist?list=PLG4d6NSc7_l5-GjYiCdYa7H5Wsz0oQA7U)<br>
+或加LINE私下交流 LINE ID: mastermaso<br>
+![LOGO](https://yt3.ggpht.com/ytc/AKedOLR7I7tw_IxwJRgso1sT4paNu2s6_4hMw2goyDdrYQ=s88-c-k-c0x00ffffff-no-rj)<br>
 
-`![LOGO](https://yt3.ggpht.com/ytc/AKedOLR7I7tw_IxwJRgso1sT4paNu2s6_4hMw2goyDdrYQ=s88-c-k-c0x00ffffff-no-rj)<br>`
 
-====================================
+====================================<br>
