@@ -68,7 +68,7 @@ https://github.com/heroku/heroku-buildpack-chromedriver
 
 
 ```
-    #在static資料夾中建立一個暫存圖片路徑(須事先指定static資料夾位置)
+    #在static資料夾中建立一個暫存圖片路徑
     image_path = './static/tmp/test.png'
     #刷新網頁 => 移除原本youtube首頁的元素
     driver.refresh()
