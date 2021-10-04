@@ -34,7 +34,7 @@ https://github.com/heroku/heroku-buildpack-chromedriver
 
 1.開啟Chrome瀏覽器
 
-```
+
 
 ```
     #開啟Chrome瀏覽器
@@ -44,11 +44,11 @@ https://github.com/heroku/heroku-buildpack-chromedriver
 
 ```
 
-```
+
 
 2.進入youtube網頁並在搜尋欄位輸入關鍵字(keyword來自LINEBOT)
 
-```
+
 
 ```
     #進入指定網址
@@ -62,11 +62,10 @@ https://github.com/heroku/heroku-buildpack-chromedriver
     search_button.click()
 ```
 
-```
+
 
 3.進入瀏覽器之後截圖確認是否爬取正確的頁面
 
-```
 
 ```
     #在static資料夾中建立一個暫存圖片路徑(須事先指定static資料夾位置)
@@ -78,11 +77,11 @@ https://github.com/heroku/heroku-buildpack-chromedriver
 
 ```
 
-```
+
 
 4.爬取影片url並且列表
 
-```
+
 
 ```
     #建立影片url列表
@@ -98,11 +97,11 @@ https://github.com/heroku/heroku-buildpack-chromedriver
 
 ```
 
-```
+
 
 5.使用driver.execute_script()執行滾動捲軸的動作，使瀏覽器讀取更多圖片
 
-```
+
 
 ```
     #滾動視窗捲軸，使瀏覽器獲取影片縮圖資訊
@@ -125,11 +124,10 @@ https://github.com/heroku/heroku-buildpack-chromedriver
 
 ```
 
-```
+
 
 6.獲得影片標題、影片發布者頻道圖片與頻道名稱
 
-```
 
 ```
     #建立標題列表
@@ -156,11 +154,11 @@ https://github.com/heroku/heroku-buildpack-chromedriver
     driver.close()
 ```
 
-```
+
 
 7.將爬取到的網頁內容以FlexMessage的訊息格式return至app.py
 
-```
+
 
 ```
     message = []   
@@ -175,7 +173,7 @@ https://github.com/heroku/heroku-buildpack-chromedriver
     return message
 ```
 
-```
+
 
 # flex_msg.py   將圖片/文字/連結組合
 
@@ -183,7 +181,7 @@ https://github.com/heroku/heroku-buildpack-chromedriver
 
 2.將bubble單元之JSON檔案複製至flex_msg.py當中，並將圖片/文字與連結置入，以完成設定
 
-```
+
 
 ```
 def image_carousel(alt_text,image_url_list,vedio_url_list,title_list,yt_channel_infos_image_urls,yt_channel_infos_names):
@@ -268,7 +266,7 @@ def image_carousel(alt_text,image_url_list,vedio_url_list,title_list,yt_channel_
     return message
 ```
 
-```
+
 
 3.將FlexMessage回傳至app.py回覆給使用者
 
