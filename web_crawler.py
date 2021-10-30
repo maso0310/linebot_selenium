@@ -31,6 +31,8 @@ def youtube_vedio_parser(keyword):
     search_vedio = driver.find_element_by_name('search_query')
     #將關鍵字文字送入搜尋欄位
     search_vedio.send_keys(keyword)
+    time.sleep(1)
+
     #按下輸入搜尋按鈕
 #    search_vedio.send_keys(Keys.RETURN)
     search_button = driver.find_element_by_id('search-icon-legacy')
@@ -53,13 +55,14 @@ def youtube_vedio_parser(keyword):
     #建立影片url列表
     vedio_url_list = []
     #以css選擇器搜尋youtube的影片連結    
-    yt_vedio_urls = driver.find_elements_by_css_selector('.yt-simple-endpoint.inline-block.style-scope.ytd-thumbnail')
+    yt_vedio_urls = driver.find_elements_by_css_selector('.ytd-thumbnail')
     #將每個影片連結放入連結list
     #print(len(yt_vedio_urls))
     for url in yt_vedio_urls:
         #print(url.get_attribute('href'))
         if len(vedio_url_list)<10:
-            vedio_url_list.append(url.get_attribute('href'))
+            if url.get_attribute('href')!=None:
+                vedio_url_list.append(url.get_attribute('href'))
 
     
     #======================從網頁獲得影片的前十張縮圖===========================
@@ -85,7 +88,7 @@ def youtube_vedio_parser(keyword):
     #======================從網頁獲取前十個影片標題===========================
     #建立標題列表
     yt_title_list = []
-    yt_vedio_infos = driver.find_elements_by_css_selector('#video-title')
+    yt_vedio_infos = driver.find_elements_by_css_selector('#video-title.ytd-video-renderer')
     for infos in yt_vedio_infos:
         yt_title_list.append(infos.get_attribute('title'))
         #print(infos.get_attribute('title'))
